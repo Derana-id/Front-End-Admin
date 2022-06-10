@@ -40,6 +40,13 @@
     "default-param-last": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": [2, { "caseSensitive": false }],
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
     "prettier/prettier": [
       "error",
       {
