@@ -3,6 +3,10 @@ import React from 'react';
 import Head from 'next/head';
 import { ContentHeader } from '../components';
 
+export async function getStaticProps() {
+  return { props: { isAuth: false } };
+}
+
 const index = () => {
   return (
     <>
