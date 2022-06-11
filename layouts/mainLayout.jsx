@@ -29,8 +29,12 @@ const mainLayout = ({ children }) => {
     }
   }, []);
 
+  useEffect(() => {
+    document.body.className = '';
+  }, []);
+
   return (
-    <div className="hold-transition sidebar-mini">
+    <>
       <div className="wrapper">
         {!isAppLoaded && <Preloader />}
 
@@ -43,7 +47,7 @@ const mainLayout = ({ children }) => {
         <ControlSidebar />
         <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
