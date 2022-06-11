@@ -1,17 +1,38 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import jwtDecode from 'jwt-decode';
+import { getDetailUser } from '../../../redux/actions/user';
 
-export default function index() {
+export default function index({ token }) {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const detailUser = useSelector((state) => state.detailUser);
+  const [src, setSrc] = React.useState(
+    `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${detailUser.data?.user?.photo}`
+  );
+
+  let decoded = '';
+  if (token) {
+    decoded = jwtDecode(token);
+  }
+
+  useEffect(() => {
+    if (decoded) {
+      dispatch(getDetailUser(router, decoded.id));
+    }
+  }, []);
+
   const logout = () => {
     Cookies.remove('token');
     router.push('/auth/login');
   };
+
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
@@ -35,20 +56,33 @@ export default function index() {
       {/* Sidebar */}
       <div className="sidebar">
         {/* Sidebar user panel (optional) */}
-        <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div className="image">
-            <img
-              src="dist/img/user2-160x160.jpg"
-              alt="User Image"
-              className="img-circle elevation-2"
-            />
+        {detailUser.isLoading ? (
+          <></>
+        ) : detailUser.isError ? (
+          <div>Error</div>
+        ) : (
+          <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div className="image">
+              <Image
+                src={src}
+                alt={detailUser.data?.profile?.name}
+                className="img-circle elevation-2"
+                width={30}
+                height={30}
+                onError={() =>
+                  setSrc(
+                    `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
+                  )
+                }
+              />
+            </div>
+            <div className="info">
+              <a href="/" className="d-block">
+                {detailUser.data?.profile?.name}
+              </a>
+            </div>
           </div>
-          <div className="info">
-            <Link href="/" className="d-block">
-              Alexander Pierce
-            </Link>
-          </div>
-        </div>
+        )}
 
         {/* SidebarSearch Form */}
         <div className="form-inline">

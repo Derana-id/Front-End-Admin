@@ -15,7 +15,7 @@ export const getDetailUser = (router, id) => async (dispatch) => {
 
     const response = await axios({
       method: 'get',
-      url: `user/${id}`,
+      url: `profile/${id}`,
     });
 
     dispatch({

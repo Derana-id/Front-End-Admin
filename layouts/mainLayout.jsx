@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 import { sleep } from '../utils/sleep';
 import {
   Preloader,
@@ -11,6 +12,7 @@ import {
 
 const mainLayout = ({ children }) => {
   const router = useRouter();
+  const token = Cookies.get('token');
   const [isAppLoaded, setIsAppLoaded] = React.useState(false);
 
   const fetchProfile = async () => {
@@ -40,7 +42,7 @@ const mainLayout = ({ children }) => {
 
         <Header />
 
-        <Sidebar />
+        <Sidebar token={token} />
 
         <div className="content-wrapper">{children}</div>
 
