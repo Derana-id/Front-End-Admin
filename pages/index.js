@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Head from 'next/head';
 import { ContentHeader } from '../components';
@@ -25,10 +26,10 @@ const index = () => {
                   <p>Airline</p>
                 </div>
                 <div className="icon">
-                  <i className="ion ion-plane"></i>
+                  <i className="ion ion-plane" />
                 </div>
                 <a href="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right"></i>
+                  More info <i className="fas fa-arrow-circle-right" />
                 </a>
               </div>
             </div>
@@ -45,10 +46,10 @@ const index = () => {
                   <p>Flight</p>
                 </div>
                 <div className="icon">
-                  <i className="ion ion-stats-bars"></i>
+                  <i className="ion ion-stats-bars" />
                 </div>
                 <a href="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right"></i>
+                  More info <i className="fas fa-arrow-circle-right" />
                 </a>
               </div>
             </div>
@@ -62,10 +63,10 @@ const index = () => {
                   <p>Customer</p>
                 </div>
                 <div className="icon">
-                  <i className="ion ion-person"></i>
+                  <i className="ion ion-person" />
                 </div>
                 <a href="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right"></i>
+                  More info <i className="fas fa-arrow-circle-right" />
                 </a>
               </div>
             </div>
@@ -79,10 +80,10 @@ const index = () => {
                   <p>Booking</p>
                 </div>
                 <div className="icon">
-                  <i className="ion ion-calendar"></i>
+                  <i className="ion ion-calendar" />
                 </div>
                 <a href="#" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right"></i>
+                  More info <i className="fas fa-arrow-circle-right" />
                 </a>
               </div>
             </div>
