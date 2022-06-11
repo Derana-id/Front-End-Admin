@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { sleep } from '../utils/sleep';
-import BodyClassName from 'react-body-classname';
 import {
   Preloader,
   ControlSidebar,

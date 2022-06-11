@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable import/extensions */
 import '../styles/globals.css';
 import React, { useEffect } from 'react';
 import NextNProgress from 'nextjs-progressbar';
