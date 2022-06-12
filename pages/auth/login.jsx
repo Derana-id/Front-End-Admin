@@ -51,11 +51,15 @@ const Login = () => {
           }
         })
         .catch((err) => {
-          if (err.response.data.code === 422) {
-            const { error } = err.response.data;
-            error.map((item) => toastify(item, 'error'));
+          if (err.response) {
+            if (err.response.data.code === 422) {
+              const { error } = err.response.data;
+              error.map((item) => toastify(item, 'error'));
+            } else {
+              sweetAlert(err.response.data.message, 'error');
+            }
           } else {
-            sweetAlert(err.response.data.message, 'error');
+            sweetAlert(err.message, 'error');
           }
         })
         .finally(() => {

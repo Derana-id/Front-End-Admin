@@ -14,16 +14,16 @@ const initialState = {
 
 const listProductReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_LIST_USER_PENDING:
+    case GET_LIST_PRODUCT_PENDING:
       return { ...state, isLoading: true };
-    case GET_LIST_USER_SUCCESS:
+    case GET_LIST_PRODUCT_SUCCESS:
       return {
         ...state,
         isLoading: false,
         isError: false,
         data: action.payload.data,
       };
-    case GET_LIST_USER_FAILED:
+    case GET_LIST_PRODUCT_FAILED:
       return {
         ...state,
         isLoading: false,

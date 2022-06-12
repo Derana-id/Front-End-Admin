@@ -33,6 +33,8 @@ export default function index({ token }) {
     router.push('/auth/login');
   };
 
+  console.log(router.pathname);
+
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
@@ -112,13 +114,27 @@ export default function index({ token }) {
             {/* Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library */}
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <a
+                href="/"
+                className={`${
+                  router.pathname === '/' ? 'nav-link active' : 'nav-link'
+                }`}
+              >
                 <i className="nav-icon fas fa-tachometer-alt" />
                 <p>Dashboard</p>
               </a>
             </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link">
+            <li
+              className={`${
+                router.pathname !== '/' ? 'nav-item menu-open' : 'nav-item'
+              }`}
+            >
+              <a
+                href="#"
+                className={`${
+                  router.pathname !== '/' ? 'nav-link active' : 'nav-link'
+                }`}
+              >
                 <i className="nav-icon fas fa-cog" />
                 <p>
                   Management
@@ -128,37 +144,79 @@ export default function index({ token }) {
               </a>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <a href="/brand" className="nav-link">
+                  <a
+                    href="/brand"
+                    className={`${
+                      router.pathname.includes('/brand')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-copyright nav-icon" />
                     <p>Brand</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/category" className="nav-link">
+                  <a
+                    href="/category"
+                    className={`${
+                      router.pathname.includes('/category')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-list nav-icon" />
                     <p>Category</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/product" className="nav-link">
+                  <a
+                    href="/product"
+                    className={`${
+                      router.pathname.includes('/product')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-tshirt nav-icon" />
                     <p>Product</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/store" className="nav-link">
+                  <a
+                    href="/store"
+                    className={`${
+                      router.pathname.includes('/store')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-store nav-icon" />
                     <p>Store</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/transaction" className="nav-link">
+                  <a
+                    href="/transaction"
+                    className={`${
+                      router.pathname.includes('/transaction')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-shopping-cart nav-icon" />
                     <p>Transaction</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/user" className="nav-link">
+                  <a
+                    href="/user"
+                    className={`${
+                      router.pathname.includes('/user')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-user nav-icon" />
                     <p>User</p>
                   </a>
