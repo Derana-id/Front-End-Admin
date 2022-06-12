@@ -6,6 +6,10 @@ import listBrand from './listBrand';
 import detailBrand from './detailBrand';
 import listCategory from './listCategory';
 import detailCategory from './detailCategory';
+import listProduct from './listProduct';
+import detailProduct from './detailProduct';
+import listTransaction from './listTransaction';
+import detailTransaction from './detailTransaction';
 
 export default combineReducers({
   detailUser,
@@ -15,4 +19,8 @@ export default combineReducers({
   detailBrand,
   listCategory,
   detailCategory,
+  listProduct,
+  detailProduct,
+  listTransaction,
+  detailTransaction,
 });
