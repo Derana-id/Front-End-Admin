@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentHeader } from '../../components';
+import { ContentHeader } from '../../../components';
 
 const edit = () => {
   return (

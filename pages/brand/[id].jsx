@@ -9,13 +9,17 @@ import { ContentHeader } from '../../components';
 
 const view = () => {
   const router = useRouter();
+  const { id } = router.query;
   const dispatch = useDispatch();
   const detailBrand = useSelector((state) => state.detailBrand);
-  const { id } = router.query;
+  const [isLoading, setIsLoading] = React.useState(true);
 
   useEffect(() => {
-    dispatch(getDetailBrand(id));
-  }, []);
+    if (id) {
+      setIsLoading(false);
+      dispatch(getDetailBrand(router, id));
+    }
+  }, [id]);
 
   return (
     <>
@@ -50,7 +54,7 @@ const view = () => {
             <div className="card-body">
               <div className="row">
                 <div className="col-md-12">
-                  {detailBrand.isLoading ? (
+                  {detailBrand.isLoading || isLoading ? (
                     <ContentLoader />
                   ) : detailBrand.isError ? (
                     <div>Error</div>

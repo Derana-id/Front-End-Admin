@@ -10,23 +10,28 @@ import { sweetAlert } from '../../../utils/sweetalert';
 
 const edit = () => {
   const router = useRouter();
+  const { id } = router.query;
   const dispatch = useDispatch();
   const detailBrand = useSelector((state) => state.detailBrand);
-  const { id } = router.query;
+
   const [name, setName] = useState(null);
   const [photo, setPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(getDetailBrand(id));
-  }, [detailBrand]);
+    if (id) {
+      setIsLoading(false);
+      dispatch(getDetailBrand(router, id));
+    }
+  }, [id]);
 
   useEffect(() => {
     if (detailBrand.data) {
-      setName(detailBrand.data.name);
+      setName(detailBrand.data.brand_name);
       setPhoto(detailBrand.data.photo);
     }
-  });
+  }, [detailBrand]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -88,7 +93,7 @@ const edit = () => {
               </div>
             </div>
             {/* /.card-header */}
-            {detailBrand.isLoading ? (
+            {detailBrand.isLoading || isLoading ? (
               <ContentLoader />
             ) : detailBrand.isError ? (
               <div>Error</div>
