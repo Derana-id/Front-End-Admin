@@ -27,10 +27,10 @@ const index = () => {
                 <div className="inner">
                   <h3>150</h3>
 
-                  <p>Airline</p>
+                  <p>Product</p>
                 </div>
                 <div className="icon">
-                  <i className="ion ion-plane" />
+                  <i className="ion ion-tshirt" />
                 </div>
                 <a href="#" className="small-box-footer">
                   More info <i className="fas fa-arrow-circle-right" />
@@ -47,7 +47,7 @@ const index = () => {
                     250
                   </h3>
 
-                  <p>Flight</p>
+                  <p>Transaction</p>
                 </div>
                 <div className="icon">
                   <i className="ion ion-stats-bars" />
@@ -81,10 +81,10 @@ const index = () => {
                 <div className="inner">
                   <h3>65</h3>
 
-                  <p>Booking</p>
+                  <p>Store</p>
                 </div>
                 <div className="icon">
-                  <i className="ion ion-calendar" />
+                  <i className="ion ion-bag" />
                 </div>
                 <a href="#" className="small-box-footer">
                   More info <i className="fas fa-arrow-circle-right" />

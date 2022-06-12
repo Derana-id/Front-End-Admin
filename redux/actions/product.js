@@ -1,28 +1,28 @@
 import Cookies from 'js-cookie';
 import axios from '../../utils/axios';
 import {
-  GET_DETAIL_USER_PENDING,
-  GET_DETAIL_USER_SUCCESS,
-  GET_DETAIL_USER_FAILED,
-  GET_LIST_USER_PENDING,
-  GET_LIST_USER_SUCCESS,
-  GET_LIST_USER_FAILED,
+  GET_DETAIL_PRODUCT_PENDING,
+  GET_DETAIL_PRODUCT_SUCCESS,
+  GET_DETAIL_PRODUCT_FAILED,
+  GET_LIST_PRODUCT_PENDING,
+  GET_LIST_PRODUCT_SUCCESS,
+  GET_LIST_PRODUCT_FAILED,
 } from '../types';
 
-export const getDetailUser = (router, id) => async (dispatch) => {
+export const getDetailProduct = (router, id) => async (dispatch) => {
   try {
     dispatch({
-      type: GET_DETAIL_USER_PENDING,
+      type: GET_DETAIL_PRODUCT_PENDING,
       payload: null,
     });
 
     const response = await axios({
       method: 'get',
-      url: `profile/${id}`,
+      url: `product/${id}`,
     });
 
     dispatch({
-      type: GET_DETAIL_USER_SUCCESS,
+      type: GET_DETAIL_PRODUCT_SUCCESS,
       payload: response.data,
     });
   } catch (error) {
@@ -35,26 +35,26 @@ export const getDetailUser = (router, id) => async (dispatch) => {
       error.message = error.response.data.error;
     }
     dispatch({
-      type: GET_DETAIL_USER_FAILED,
+      type: GET_DETAIL_PRODUCT_FAILED,
       payload: error.message,
     });
   }
 };
 
-export const getListUser = (router) => async (dispatch) => {
+export const getListProduct = (router) => async (dispatch) => {
   try {
     dispatch({
-      type: GET_LIST_USER_PENDING,
+      type: GET_LIST_PRODUCT_PENDING,
       payload: null,
     });
 
     const response = await axios({
       method: 'get',
-      url: `profile`,
+      url: `product?limit=100`,
     });
 
     dispatch({
-      type: GET_LIST_USER_SUCCESS,
+      type: GET_LIST_PRODUCT_SUCCESS,
       payload: response.data,
     });
   } catch (error) {
@@ -67,7 +67,7 @@ export const getListUser = (router) => async (dispatch) => {
       error.message = error.response.data.error;
     }
     dispatch({
-      type: GET_LIST_USER_FAILED,
+      type: GET_LIST_PRODUCT_FAILED,
       payload: error.message,
     });
   }

@@ -1,17 +1,35 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import jwtDecode from 'jwt-decode';
+import { getDetailUser } from '../../../redux/actions/user';
 
-export default function index() {
+export default function index({ token }) {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const detailUser = useSelector((state) => state.detailUser);
+
+  let decoded = '';
+  if (token) {
+    decoded = jwtDecode(token);
+  }
+
+  useEffect(() => {
+    if (decoded) {
+      dispatch(getDetailUser(router, decoded.id));
+    }
+  }, []);
+
   const logout = () => {
     Cookies.remove('token');
     router.push('/auth/login');
   };
+
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
@@ -35,20 +53,35 @@ export default function index() {
       {/* Sidebar */}
       <div className="sidebar">
         {/* Sidebar user panel (optional) */}
-        <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div className="image">
-            <img
-              src="dist/img/user2-160x160.jpg"
-              alt="User Image"
-              className="img-circle elevation-2"
-            />
+        {detailUser.isLoading ? (
+          <></>
+        ) : detailUser.isError ? (
+          <div>Error</div>
+        ) : (
+          <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div className="image">
+              <Image
+                src={`${
+                  detailUser.data?.profile?.photo
+                    ? `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${detailUser.data?.profile?.photo}`
+                    : `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
+                }`}
+                alt={detailUser.data?.profile?.name}
+                className="img-circle elevation-2"
+                width={30}
+                height={30}
+                onError={(e) => {
+                  e.target.src = `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`;
+                }}
+              />
+            </div>
+            <div className="info">
+              <a href="/" className="d-block">
+                {detailUser.data?.profile?.name}
+              </a>
+            </div>
           </div>
-          <div className="info">
-            <Link href="/" className="d-block">
-              Alexander Pierce
-            </Link>
-          </div>
-        </div>
+        )}
 
         {/* SidebarSearch Form */}
         <div className="form-inline">
@@ -78,13 +111,27 @@ export default function index() {
             {/* Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library */}
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <a
+                href="/"
+                className={`${
+                  router.pathname === '/' ? 'nav-link active' : 'nav-link'
+                }`}
+              >
                 <i className="nav-icon fas fa-tachometer-alt" />
                 <p>Dashboard</p>
               </a>
             </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link">
+            <li
+              className={`${
+                router.pathname !== '/' ? 'nav-item menu-open' : 'nav-item'
+              }`}
+            >
+              <a
+                href="#"
+                className={`${
+                  router.pathname !== '/' ? 'nav-link active' : 'nav-link'
+                }`}
+              >
                 <i className="nav-icon fas fa-cog" />
                 <p>
                   Management
@@ -94,37 +141,79 @@ export default function index() {
               </a>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <a href="/brand" className="nav-link">
+                  <a
+                    href="/brand"
+                    className={`${
+                      router.pathname.includes('/brand')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-copyright nav-icon" />
                     <p>Brand</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/category" className="nav-link">
+                  <a
+                    href="/category"
+                    className={`${
+                      router.pathname.includes('/category')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-list nav-icon" />
                     <p>Category</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/product" className="nav-link">
+                  <a
+                    href="/product"
+                    className={`${
+                      router.pathname.includes('/product')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-tshirt nav-icon" />
                     <p>Product</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/store" className="nav-link">
+                  <a
+                    href="/store"
+                    className={`${
+                      router.pathname.includes('/store')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-store nav-icon" />
                     <p>Store</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/transaction" className="nav-link">
+                  <a
+                    href="/transaction"
+                    className={`${
+                      router.pathname.includes('/transaction')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-shopping-cart nav-icon" />
                     <p>Transaction</p>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/user" className="nav-link">
+                  <a
+                    href="/user"
+                    className={`${
+                      router.pathname.includes('/user')
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }`}
+                  >
                     <i className="fas fa-user nav-icon" />
                     <p>User</p>
                   </a>
@@ -133,7 +222,11 @@ export default function index() {
             </li>
             <li className="nav-header">LOGOUT</li>
             <li className="nav-item">
-              <a onClick={logout} className="nav-link">
+              <a
+                onClick={logout}
+                className="nav-link"
+                style={{ cursor: 'pointer' }}
+              >
                 <i className="nav-icon fas fa-sign-out-alt" />
                 <p>Logout</p>
               </a>
