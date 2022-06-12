@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import $ from 'jquery';
 import { useDispatch, useSelector } from 'react-redux';
 import ContentLoader from 'react-content-loader';
@@ -13,9 +12,6 @@ const index = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const listUser = useSelector((state) => state.listUser);
-  const [src, setSrc] = React.useState(
-    `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${listUser.data?.user?.photo}`
-  );
 
   useEffect(() => {
     dispatch(getListUser(router));
@@ -95,16 +91,17 @@ const index = () => {
                               {item.profile?.birth ? item.profile?.birth : '-'}
                             </td>
                             <td>
-                              <Image
-                                src={src}
-                                alt={item.profile?.photo}
-                                width={40}
-                                height={40}
-                                onError={() =>
-                                  setSrc(
-                                    `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
-                                  )
-                                }
+                              <img
+                                src={`${
+                                  item.photo
+                                    ? `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${item.photo}`
+                                    : `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
+                                }`}
+                                alt={item.photo}
+                                style={{ width: '60px' }}
+                                onError={(e) => {
+                                  e.target.src = `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`;
+                                }}
                               />
                             </td>
                           </tr>

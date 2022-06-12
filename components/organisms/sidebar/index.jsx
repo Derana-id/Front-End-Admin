@@ -33,8 +33,6 @@ export default function index({ token }) {
     router.push('/auth/login');
   };
 
-  console.log(router.pathname);
-
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
