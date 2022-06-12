@@ -1,28 +1,28 @@
 import Cookies from 'js-cookie';
 import axios from '../../utils/axios';
 import {
-  GET_DETAIL_BRAND_PENDING,
-  GET_DETAIL_BRAND_SUCCESS,
-  GET_DETAIL_BRAND_FAILED,
-  GET_LIST_BRAND_PENDING,
-  GET_LIST_BRAND_SUCCESS,
-  GET_LIST_BRAND_FAILED,
+  GET_DETAIL_CATEGORY_PENDING,
+  GET_DETAIL_CATEGORY_SUCCESS,
+  GET_DETAIL_CATEGORY_FAILED,
+  GET_LIST_CATEGORY_PENDING,
+  GET_LIST_CATEGORY_SUCESS,
+  GET_LIST_CATEGORY_FAILED,
 } from '../types';
 
-export const getDetailBrand = (router, id) => async (dispatch) => {
+export const getDetailCategory = (router, id) => async (dispatch) => {
   try {
     dispatch({
-      type: GET_DETAIL_BRAND_PENDING,
+      type: GET_DETAIL_CATEGORY_PENDING,
       payload: null,
     });
 
     const response = await axios({
       method: 'get',
-      url: `brand/${id}`,
+      url: `category/${id}`,
     });
 
     dispatch({
-      type: GET_DETAIL_BRAND_SUCCESS,
+      type: GET_DETAIL_CATEGORY_SUCCESS,
       payload: response.data,
     });
   } catch (error) {
@@ -35,26 +35,26 @@ export const getDetailBrand = (router, id) => async (dispatch) => {
       error.message = error.response.data.error;
     }
     dispatch({
-      type: GET_DETAIL_BRAND_FAILED,
+      type: GET_DETAIL_CATEGORY_FAILED,
       payload: error.message,
     });
   }
 };
 
-export const getListBrand = (router) => async (dispatch) => {
+export const getListCategory = (router) => async (dispatch) => {
   try {
     dispatch({
-      type: GET_LIST_BRAND_PENDING,
+      type: GET_LIST_CATEGORY_PENDING,
       payload: null,
     });
 
     const response = await axios({
       method: 'get',
-      url: `brand?limit=100`,
+      url: `category?limit=100`,
     });
 
     dispatch({
-      type: GET_LIST_BRAND_SUCCESS,
+      type: GET_LIST_CATEGORY_SUCESS,
       payload: response.data,
     });
   } catch (error) {
@@ -67,16 +67,16 @@ export const getListBrand = (router) => async (dispatch) => {
       error.message = error.response.data.error;
     }
     dispatch({
-      type: GET_LIST_BRAND_FAILED,
+      type: GET_LIST_CATEGORY_FAILED,
       payload: error.message,
     });
   }
 };
 
-export const addBrand = (data) => {
+export const addCategory = (data) => {
   return new Promise((resolve, reject) => {
     axios
-      .post('brand', data)
+      .post('category', data)
       .then((res) => {
         resolve(res.data);
       })
@@ -86,10 +86,10 @@ export const addBrand = (data) => {
   });
 };
 
-export const editBrand = (data, id) => {
+export const editCategory = (data, id) => {
   return new Promise((resolve, reject) => {
     axios
-      .put(`brand/${id}`, data)
+      .put(`category/${id}`, data)
       .then((res) => {
         resolve(res.data);
       })
@@ -99,10 +99,10 @@ export const editBrand = (data, id) => {
   });
 };
 
-export const deleteBrand = (data, id) => {
+export const deleteCategory = (data, id) => {
   return new Promise((resolve, reject) => {
     axios
-      .put(`brand/delete/${id}`, data)
+      .put(`category/delete/${id}`, data)
       .then((res) => {
         resolve(res.data);
       })

@@ -38,8 +38,8 @@ const index = () => {
   const handleDelete = (e, id) => {
     e.preventDefault();
     Swal.fire({
-      title: 'Changed status airline',
-      text: 'Are you sure to change the status to non active ?',
+      title: 'Are you sure?',
+      text: 'Are you sure you want to delete the data ?',
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -48,7 +48,35 @@ const index = () => {
     }).then(async (confirm) => {
       if (confirm.isConfirmed) {
         try {
-          const res = await deleteBrand(id);
+          const res = await deleteBrand({ isActive: 0 }, id);
+          sweetAlert(res.message);
+          window.location.reload();
+        } catch (err) {
+          if (err.response.data.code === 422) {
+            const { error } = err.response.data;
+            error.map((item) => toastify(item, 'error'));
+          } else {
+            sweetAlert(err.response.data.message, 'error');
+          }
+        }
+      }
+    });
+  };
+
+  const handleRestore = (e, id) => {
+    e.preventDefault();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Are you sure you want to restore the data ?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, I Sure!',
+    }).then(async (confirm) => {
+      if (confirm.isConfirmed) {
+        try {
+          const res = await deleteBrand({ isActive: 1 }, id);
           sweetAlert(res.message);
           window.location.reload();
         } catch (err) {
@@ -146,15 +174,27 @@ const index = () => {
                                 <i className="fas fa-pencil-alt" />
                                 &nbsp; Edit
                               </a>
-                              <button
-                                className="btn btn-danger btn-sm ml-2"
-                                onClick={(e) => {
-                                  handleDelete(e, item.id);
-                                }}
-                              >
-                                <i className="fas fa-trash" />
-                                &nbsp; Delete
-                              </button>
+                              {item.is_active === 1 ? (
+                                <button
+                                  className="btn btn-danger btn-sm ml-2"
+                                  onClick={(e) => {
+                                    handleDelete(e, item.id);
+                                  }}
+                                >
+                                  <i className="fas fa-trash" />
+                                  &nbsp; Delete
+                                </button>
+                              ) : (
+                                <button
+                                  className="btn btn-success btn-sm ml-2"
+                                  onClick={(e) => {
+                                    handleRestore(e, item.id);
+                                  }}
+                                >
+                                  <i className="fas fa-undo" />
+                                  &nbsp; Restore
+                                </button>
+                              )}
                             </td>
                           </tr>
                         ))}
