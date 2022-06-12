@@ -4,6 +4,9 @@ import {
   GET_DETAIL_USER_PENDING,
   GET_DETAIL_USER_SUCCESS,
   GET_DETAIL_USER_FAILED,
+  GET_LIST_USER_PENDING,
+  GET_LIST_USER_SUCCESS,
+  GET_LIST_USER_FAILED,
 } from '../types';
 
 export const getDetailUser = (router, id) => async (dispatch) => {
@@ -33,6 +36,38 @@ export const getDetailUser = (router, id) => async (dispatch) => {
     }
     dispatch({
       type: GET_DETAIL_USER_FAILED,
+      payload: error.message,
+    });
+  }
+};
+
+export const getListUser = (router) => async (dispatch) => {
+  try {
+    dispatch({
+      type: GET_LIST_USER_PENDING,
+      payload: null,
+    });
+
+    const response = await axios({
+      method: 'get',
+      url: `profile`,
+    });
+
+    dispatch({
+      type: GET_LIST_USER_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    if (error.response) {
+      if (parseInt(error.response.data.code, 10) === 401) {
+        Cookies.remove('token');
+        router.push('/auth/login');
+      }
+
+      error.message = error.response.data.error;
+    }
+    dispatch({
+      type: GET_LIST_USER_FAILED,
       payload: error.message,
     });
   }
