@@ -39,7 +39,7 @@ const index = () => {
       <Head>
         <title>Blanja Admin - Management User</title>
       </Head>
-      <ContentHeader title="Management User" />
+      <ContentHeader title="User" />
       {/* Main content */}
       <section className="content">
         <div className="container-fluid">

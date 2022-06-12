@@ -1,7 +1,7 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import $ from 'jquery';
 import { useDispatch, useSelector } from 'react-redux';
 import ContentLoader from 'react-content-loader';
@@ -13,9 +13,6 @@ const index = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const listStore = useSelector((state) => state.listStore);
-  const [src, setSrc] = React.useState(
-    `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${listStore.data?.store?.photo}`
-  );
 
   useEffect(() => {
     dispatch(getListStore(router));
@@ -43,7 +40,7 @@ const index = () => {
       <Head>
         <title>Blanja Admin - Management Store</title>
       </Head>
-      <ContentHeader title="Management Store" />
+      <ContentHeader title="Store" />
       {/* Main content */}
       <section className="content">
         <div className="container-fluid">
@@ -99,16 +96,18 @@ const index = () => {
                                 : '-'}
                             </td>
                             <td>
-                              <Image
-                                src={src}
+                              <img
+                                src={`${
+                                  item.photo
+                                    ? `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${item.photo}`
+                                    : `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
+                                }`}
                                 alt={item.store?.photo}
                                 width={40}
                                 height={40}
-                                onError={() =>
-                                  setSrc(
-                                    `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
-                                  )
-                                }
+                                onError={(e) => {
+                                  e.target.src = `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`;
+                                }}
                               />
                             </td>
                           </tr>

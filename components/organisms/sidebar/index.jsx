@@ -13,9 +13,6 @@ export default function index({ token }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const detailUser = useSelector((state) => state.detailUser);
-  const [src, setSrc] = React.useState(
-    `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${detailUser.data?.user?.photo}`
-  );
 
   let decoded = '';
   if (token) {
@@ -64,16 +61,18 @@ export default function index({ token }) {
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
             <div className="image">
               <Image
-                src={src}
+                src={`${
+                  detailUser.data?.profile?.photo
+                    ? `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${detailUser.data?.profile?.photo}`
+                    : `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
+                }`}
                 alt={detailUser.data?.profile?.name}
                 className="img-circle elevation-2"
                 width={30}
                 height={30}
-                onError={() =>
-                  setSrc(
-                    `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
-                  )
-                }
+                onError={(e) => {
+                  e.target.src = `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`;
+                }}
               />
             </div>
             <div className="info">
@@ -223,7 +222,11 @@ export default function index({ token }) {
             </li>
             <li className="nav-header">LOGOUT</li>
             <li className="nav-item">
-              <a onClick={logout} className="nav-link">
+              <a
+                onClick={logout}
+                className="nav-link"
+                style={{ cursor: 'pointer' }}
+              >
                 <i className="nav-icon fas fa-sign-out-alt" />
                 <p>Logout</p>
               </a>
