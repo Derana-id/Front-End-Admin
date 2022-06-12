@@ -1,7 +1,7 @@
 import {
-  GET_LIST_USER_PENDING,
-  GET_LIST_USER_SUCCESS,
-  GET_LIST_USER_FAILED,
+  GET_LIST_PRODUCT_PENDING,
+  GET_LIST_PRODUCT_SUCCESS,
+  GET_LIST_PRODUCT_FAILED,
 } from '../types';
 
 const initialState = {
@@ -12,7 +12,7 @@ const initialState = {
   pagination: [],
 };
 
-const listUserReducer = (state = initialState, action) => {
+const listProductReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_LIST_USER_PENDING:
       return { ...state, isLoading: true };
@@ -35,4 +35,4 @@ const listUserReducer = (state = initialState, action) => {
   }
 };
 
-export default listUserReducer;
+export default listProductReducer;
