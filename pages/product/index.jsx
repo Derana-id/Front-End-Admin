@@ -1,24 +1,19 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import $ from 'jquery';
 import { useDispatch, useSelector } from 'react-redux';
 import ContentLoader from 'react-content-loader';
 import { useRouter } from 'next/router';
-import { getListStore } from '../../redux/actions/store';
+import { getListProduct } from '../../redux/actions/product';
 import { ContentHeader } from '../../components';
 
 const index = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const listStore = useSelector((state) => state.listStore);
-  const [src, setSrc] = React.useState(
-    `${process.env.NEXT_PUBLIC_API_URL}uploads/products/${listStore.data?.store?.photo}`
-  );
+  const listProduct = useSelector((state) => state.listProduct);
 
   useEffect(() => {
-    dispatch(getListStore(router));
+    dispatch(getListProduct(router));
   }, []);
 
   useEffect(() => {
@@ -36,14 +31,14 @@ const index = () => {
         });
       }, 1000);
     });
-  }, [listStore]);
+  }, [listProduct]);
 
   return (
     <>
       <Head>
         <title>Blanja Admin - Management Product</title>
       </Head>
-      <ContentHeader title="Management Product" />
+      <ContentHeader title="Product" />
       {/* Main content */}
       <section className="content">
         <div className="container-fluid">
@@ -55,61 +50,53 @@ const index = () => {
                 </div>
                 {/* /.card-header */}
                 <div className="card-body">
-                  {listStore.isLoading ? (
+                  {listProduct.isLoading ? (
                     <ContentLoader />
-                  ) : listStore.isError ? (
+                  ) : listProduct.isError ? (
                     <div>Error</div>
                   ) : (
                     <table
                       id="example1"
-                      className="table table-bordered table-striped table-hover text-center"
+                      className="table table-bordered table-striped table-hover"
                     >
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Store Name</th>
-                          <th>Product Name</th>
-                          <th>Brand Name</th>
-                          <th>Category Name</th>
-                          <th>Product Color</th>
-                          <th>Product Size</th>
+                          <th>Store</th>
+                          <th>Category</th>
+                          <th>Name</th>
+                          <th>Brand</th>
+                          <th>Status</th>
+                          <th>Option</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {listStore.data?.map((item, i) => (
-                          <tr key={i}>
+                        {listProduct.data?.map((item, i) => (
+                          <tr>
                             <td>{i + 1}</td>
-                            <td>{item.store?.name}</td>
+                            <td>{item.store[0].store_name}</td>
+                            <td>{item.category[0].category_name}</td>
+                            <td>{item.product?.product_name}</td>
+                            <td>{item.brand[0].brand_name}</td>
                             <td>
-                              {item.user[0].email ? item.user[0].email : '-'}
+                              {item.product?.is_active === 1 ? (
+                                <span className="badge badge-pill badge-primary">
+                                  Active
+                                </span>
+                              ) : (
+                                <span className="badge badge-pill badge-danger">
+                                  Non Active
+                                </span>
+                              )}
                             </td>
-                            <td>
-                              {item.store?.store_name
-                                ? item.store?.store_name
-                                : '-'}
-                            </td>
-                            <td>
-                              {item.store?.store_phone
-                                ? item.store?.store_phone
-                                : '-'}
-                            </td>
-                            <td>
-                              {item.store?.store_description
-                                ? item.store?.store_description
-                                : '-'}
-                            </td>
-                            <td>
-                              <Image
-                                src={src}
-                                alt={item.store?.photo}
-                                width={40}
-                                height={40}
-                                onError={() =>
-                                  setSrc(
-                                    `${process.env.NEXT_PUBLIC_API_URL}uploads/products/default.png`
-                                  )
-                                }
-                              />
+                            <td className="text-center">
+                              <a
+                                className="btn btn-primary btn-sm"
+                                href={`transaction/${item.id}`}
+                              >
+                                <i className="fas fa-eye" />
+                                &nbsp; View
+                              </a>
                             </td>
                           </tr>
                         ))}

@@ -50,7 +50,7 @@ export const getListProduct = (router) => async (dispatch) => {
 
     const response = await axios({
       method: 'get',
-      url: `product`,
+      url: `product?limit=100`,
     });
 
     dispatch({
