@@ -15,7 +15,7 @@ export const getListStore = (router) => async (dispatch) => {
 
     const response = await axios({
       method: 'get',
-      url: `store`,
+      url: `user/store`,
     });
 
     dispatch({
