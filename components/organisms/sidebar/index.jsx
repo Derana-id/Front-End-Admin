@@ -63,7 +63,7 @@ export default function index({ token }) {
               <Image
                 src={`${
                   detailUser.data?.profile?.photo
-                    ? `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${detailUser.data?.profile?.photo}`
+                    ? `https://drive.google.com/uc?export=view&id=${detailUser.data?.profile?.photo}`
                     : `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
                 }`}
                 alt={detailUser.data?.profile?.name}

@@ -99,7 +99,7 @@ const index = () => {
                               <img
                                 src={`${
                                   item.photo
-                                    ? `${process.env.NEXT_PUBLIC_API_URL}uploads/users/${item.photo}`
+                                    ? `https://drive.google.com/uc?export=view&id=${item.photo}`
                                     : `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
                                 }`}
                                 alt={item.store?.photo}
