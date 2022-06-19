@@ -1,34 +1,185 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div id="top"></div>
 
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/Derana-id/Front-End-Admin">
+    <img src="https://lh3.googleusercontent.com/d/13oL_tdqAFzcRVAPIk0lWpAuGZQ1Dmj4d" alt="Logo" width="400px">
+  </a>
+
+  <h3 align="center">Blanja App</h3>
+
+  <p align="center">
+    Blanja is an online fashion store that offers fashion products.
+    <br />
+    <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="bit.ly/blanja-app">View Demo</a>
+    ·
+    <a href="https://github.com/Derana-id/Front-End-BelanjaApp/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Derana-id/Front-End-BelanjaApp/issues">Request Feature</a>
+  </p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+ ## Table of Contents
+ 
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#setup-env-example">Setup .env example</a></li>
+      </ul>
+    </li>
+    <li><a href="#screenshoots">Screenshots</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#related-project">Related Project</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#our-team">Our Team</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+**Blanja** is an online shop that currently focuses on the fashion market. Allows sellers to market their fashion products and customers can buy the best and cheap fashion needs.
+
+### Built With
+This app was built with some technologies below:
+* [Javascript](https://www.javascript.com/)
+* [Next Js](https://vuejs.org/v2)
+* [Axios](https://axios-http.com/)
+* [Redux](https://redux.js.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
+This is an example of how to list things you need to use the software and how to install them.
+
+* [nodejs](https://nodejs.org/en/download/)
+
+### Installation
+
+- Clone This Front End Repo
+```
+git clone https://github.com/Derana-id/Front-End-BelanjaApp.git
+```
+- Go To Folder Repo
+```
+cd Front-End-BelanjaApp
+```
+- Install Module
+```
+npm install
+```
+- <a href="#setup-env">Setup .env</a>
+- Type ` npm run dev` To Start Development
+- Type ` npm run start` To Start Production
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Setup .env
+Create .env file in your root project folder.
+```
+# app
+NEXT_PUBLIC_API_URL = [API_URL]
+NEXT_PUBLIC_NODE_ENV = [NODE_ENV]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Screenshoots
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Contributing
 
-## Learn More
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-To learn more about Next.js, take a look at the following resources:
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Related Project
+:rocket: [`Backend Blanja`](https://github.com/Derana-id/RESTFull_API_BlanjaApp)
 
-## Deploy on Vercel
+:rocket: [`Frontend Blanja`](https://github.com/Derana-id/Front-End-BelanjaApp)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+:rocket: [`Frontend Blanja Admin`](https://github.com/Derana-id/Front-End-Admin)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+:rocket: [`Demo Blanja`](https://bit.ly/blanja-app/)
+
+:rocket: [`Demo Blanja Admin`](https://blanja-admin.vercel.app/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Our Team
+
+<center>
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/hakamfaza">
+          <img width="100" src="https://avatars.githubusercontent.com/u/75160713?v=4" alt="Muhammad Hakam Faza"><br/>
+          <sub><b>Muhammad Hakam Faza</b></sub> <br/>
+          <sub>Project Manager | Front End Web Developer</sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/hanifudin0597">
+          <img width="100" src="https://avatars.githubusercontent.com/u/47863909?v=4" alt="Hanifudin Alfauzi"><br/>
+          <sub><b>Hanifudin Alfauzi</b></sub> <br/>
+          <sub>Front End Web Developer</sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/altrawan">
+          <img width="100" src="https://avatars.githubusercontent.com/u/39686865?v=4" alt="Nur Muhammad Alif Putra Setiawan"><br/>
+          <sub><b>Nur Muhammad Alif</b></sub> <br/>
+          <sub>Full Stack Web Developer</sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/rifanhidayatulloh">
+          <img width="100" src="https://avatars.githubusercontent.com/u/87940197?v=4" alt="Rif'an Hidayatulloh"><br/>
+          <sub><b>Rif'an Hidayatulloh</b></sub> <br/>
+          <sub>Back End Web Developer</sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/bagus25dzikri06">
+          <img width="100" src="https://avatars.githubusercontent.com/u/18045292?v=4" alt="Bagus Dzikri Hidayat"><br/>
+          <sub><b>Bagus Dzikri Hidayat</b></sub> <br/>
+          <sub>Front End Web Developer</sub>
+        </a>
+      </td>
+    </tr>
+  </table>
+</center>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## License
+Distributed under the [MIT](/LICENSE) License.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
