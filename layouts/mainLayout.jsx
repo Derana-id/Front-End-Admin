@@ -1,44 +1,34 @@
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
+// import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import { sleep } from '../utils/sleep';
-import {
-  Preloader,
-  ControlSidebar,
-  Header,
-  Sidebar,
-  Footer,
-} from '../components';
+// import { sleep } from '../utils/sleep';
+import { ControlSidebar, Header, Sidebar, Footer } from '../components';
 
 const mainLayout = ({ children }) => {
-  const router = useRouter();
+  // const router = useRouter();
   const token = Cookies.get('token');
-  const [isAppLoaded, setIsAppLoaded] = React.useState(false);
+  // const [isAppLoaded, setIsAppLoaded] = React.useState(false);
 
-  const fetchProfile = async () => {
-    try {
-      await sleep(1000);
-      setIsAppLoaded(true);
-    } catch (error) {
-      await sleep(1000);
-      setIsAppLoaded(true);
-    }
-  };
+  // const fetchProfile = async () => {
+  //   try {
+  //     await sleep(1000);
+  //     setIsAppLoaded(true);
+  //   } catch (error) {
+  //     await sleep(1000);
+  //     setIsAppLoaded(true);
+  //   }
+  // };
 
-  useEffect(() => {
-    if (router.pathname === '/') {
-      fetchProfile();
-    }
-  }, []);
-
-  useEffect(() => {
-    document.body.className = '';
-  }, []);
+  // useEffect(() => {
+  //   if (router.pathname === '/') {
+  //     fetchProfile();
+  //   }
+  // }, []);
 
   return (
     <>
       <div className="wrapper">
-        {!isAppLoaded && <Preloader />}
+        {/* {!isAppLoaded && <Preloader />} */}
 
         <Header />
 
