@@ -18,7 +18,7 @@ export const getDetailUser = (router, id) => async (dispatch) => {
 
     const response = await axios({
       method: 'get',
-      url: `profile/${id}`,
+      url: `user/${id}`,
     });
 
     dispatch({
@@ -50,7 +50,7 @@ export const getListUser = (router) => async (dispatch) => {
 
     const response = await axios({
       method: 'get',
-      url: `profile`,
+      url: `user`,
     });
 
     dispatch({

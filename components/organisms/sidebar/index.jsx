@@ -77,7 +77,9 @@ export default function index({ token }) {
             </div>
             <div className="info">
               <a href="/" className="d-block">
-                {detailUser.data?.profile?.name}
+                {detailUser.data?.profile?.name
+                  ? detailUser.data?.profile?.name
+                  : 'Your Name'}
               </a>
             </div>
           </div>

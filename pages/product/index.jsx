@@ -3,17 +3,15 @@ import Head from 'next/head';
 import $ from 'jquery';
 import { useDispatch, useSelector } from 'react-redux';
 import ContentLoader from 'react-content-loader';
-import { useRouter } from 'next/router';
 import { getListProduct } from '../../redux/actions/product';
 import { ContentHeader } from '../../components';
 
 const index = () => {
-  const router = useRouter();
   const dispatch = useDispatch();
   const listProduct = useSelector((state) => state.listProduct);
 
   useEffect(() => {
-    dispatch(getListProduct(router));
+    dispatch(getListProduct());
   }, []);
 
   useEffect(() => {

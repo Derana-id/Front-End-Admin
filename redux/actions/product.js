@@ -41,7 +41,7 @@ export const getDetailProduct = (router, id) => async (dispatch) => {
   }
 };
 
-export const getListProduct = (router) => async (dispatch) => {
+export const getListProduct = () => async (dispatch) => {
   try {
     dispatch({
       type: GET_LIST_PRODUCT_PENDING,
@@ -50,7 +50,7 @@ export const getListProduct = (router) => async (dispatch) => {
 
     const response = await axios({
       method: 'get',
-      url: `product?limit=100`,
+      url: `product`,
     });
 
     dispatch({
@@ -59,11 +59,6 @@ export const getListProduct = (router) => async (dispatch) => {
     });
   } catch (error) {
     if (error.response) {
-      if (parseInt(error.response.data.code, 10) === 401) {
-        Cookies.remove('token');
-        router.push('/auth/login');
-      }
-
       error.message = error.response.data.error;
     }
     dispatch({
