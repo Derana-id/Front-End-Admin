@@ -62,7 +62,7 @@ export default function index({ token }) {
             <div className="image">
               <Image
                 src={`${
-                  detailUser.data?.profile?.photo
+                  detailUser.data?.user?.photo
                     ? `https://drive.google.com/uc?export=view&id=${detailUser.data?.profile?.photo}`
                     : `${process.env.NEXT_PUBLIC_API_URL}uploads/users/default.png`
                 }`}
@@ -77,8 +77,8 @@ export default function index({ token }) {
             </div>
             <div className="info">
               <a href="/" className="d-block">
-                {detailUser.data?.profile?.name
-                  ? detailUser.data?.profile?.name
+                {detailUser.data?.user?.email
+                  ? detailUser.data?.user?.email
                   : 'Your Name'}
               </a>
             </div>
