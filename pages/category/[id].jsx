@@ -63,7 +63,7 @@ const view = () => {
                       <img
                         src={`${
                           detailCategory.data.photo
-                            ? `${process.env.NEXT_PUBLIC_API_URL}uploads/categories/${detailCategory.data.photo}`
+                            ? `https://drive.google.com/uc?export=view&id=${detailCategory.data.photo}`
                             : `${process.env.NEXT_PUBLIC_API_URL}uploads/categories/default.png`
                         }`}
                         alt={detailCategory.data.photo}
