@@ -17,9 +17,9 @@
     <br />
     <a href="https://bit.ly/blanja-app">View Demo</a>
     ·
-    <a href="https://github.com/Derana-id/Front-End-BelanjaApp/issues">Report Bug</a>
+    <a href="https://github.com/Derana-id/Front-End-Admin/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Derana-id/Front-End-BelanjaApp/issues">Request Feature</a>
+    <a href="https://github.com/Derana-id/Front-End-Admin/issues">Request Feature</a>
   </p>
 </div>
 
@@ -46,7 +46,6 @@
     <li><a href="#screenshoots">Screenshots</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#related-project">Related Project</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#our-team">Our Team</a></li>
     <li><a href="#license">License</a></li>
   </ol>
@@ -59,10 +58,10 @@
 ### Built With
 This app was built with some technologies below:
 * [Javascript](https://www.javascript.com/)
-* [Next Js](https://vuejs.org/v2)
+* [Next Js](https://nextjs.org/)
 * [Axios](https://axios-http.com/)
 * [Redux](https://redux.js.org/)
-* [Tailwind CSS](https://tailwindcss.com/)
+* [Admin LTE](https://adminlte.io/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -79,11 +78,11 @@ This is an example of how to list things you need to use the software and how to
 
 - Clone This Front End Repo
 ```
-git clone https://github.com/Derana-id/Front-End-BelanjaApp.git
+git clone https://github.com/Derana-id/Front-End-Admin.git
 ```
 - Go To Folder Repo
 ```
-cd Front-End-BelanjaApp
+cd Front-End-Admin
 ```
 - Install Module
 ```
@@ -133,44 +132,16 @@ Contributions are what make the open source community such an amazing place to b
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Our Team
+## Contributors
 
 <center>
   <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/hakamfaza">
-          <img width="100" src="https://avatars.githubusercontent.com/u/75160713?v=4" alt="Muhammad Hakam Faza"><br/>
-          <sub><b>Muhammad Hakam Faza</b></sub> <br/>
-          <sub>Project Manager | Front End Web Developer</sub>
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/hanifudin0597">
-          <img width="100" src="https://avatars.githubusercontent.com/u/47863909?v=4" alt="Hanifudin Alfauzi"><br/>
-          <sub><b>Hanifudin Alfauzi</b></sub> <br/>
-          <sub>Front End Web Developer</sub>
-        </a>
-      </td>
-      <td align="center">
         <a href="https://github.com/altrawan">
           <img width="100" src="https://avatars.githubusercontent.com/u/39686865?v=4" alt="Nur Muhammad Alif Putra Setiawan"><br/>
           <sub><b>Nur Muhammad Alif</b></sub> <br/>
           <sub>Full Stack Web Developer</sub>
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/rifanhidayatulloh">
-          <img width="100" src="https://avatars.githubusercontent.com/u/87940197?v=4" alt="Rif'an Hidayatulloh"><br/>
-          <sub><b>Rif'an Hidayatulloh</b></sub> <br/>
-          <sub>Back End Web Developer</sub>
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/bagus25dzikri06">
-          <img width="100" src="https://avatars.githubusercontent.com/u/18045292?v=4" alt="Bagus Dzikri Hidayat"><br/>
-          <sub><b>Bagus Dzikri Hidayat</b></sub> <br/>
-          <sub>Front End Web Developer</sub>
         </a>
       </td>
     </tr>
