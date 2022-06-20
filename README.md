@@ -15,7 +15,7 @@
     <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="bit.ly/blanja-app">View Demo</a>
+    <a href="https://bit.ly/blanja-app">View Demo</a>
     ·
     <a href="https://github.com/Derana-id/Front-End-BelanjaApp/issues">Report Bug</a>
     ·
