@@ -10,7 +10,7 @@
   <h3 align="center">Blanja Admin</h3>
 
   <p align="center">
-    Blanja is an online fashion store that offers fashion products.
+    Blanja Management Data.
     <br />
     <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
     <br />
@@ -46,14 +46,14 @@
     <li><a href="#screenshoots">Screenshots</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#related-project">Related Project</a></li>
-    <li><a href="#our-team">Our Team</a></li>
+    <li><a href="#contributors">Contributors</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-**Blanja** is an online shop that currently focuses on the fashion market. Allows sellers to market their fashion products and customers can buy the best and cheap fashion needs.
+**Blanja** Management Data.
 
 ### Built With
 This app was built with some technologies below:
@@ -105,7 +105,60 @@ NEXT_PUBLIC_NODE_ENV = [NODE_ENV]
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Screenshoots
+<p align="center" display=flex>
+<table>
+ 
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1P4MAl8NboEdElUCnOVFBclAAwnRn5aFb" alt="Login Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1JRKhRbxBmHBAboEtKZ1zKzRSliVQl4vq" alt="Dashboard Page" width=100%/></td>
+  </tr>
+   <tr>
+    <td>Login Page</td>
+    <td>Dashboard Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1vgAiEmx0b910MrT6yYPipKMHdzDviDla" alt="List Brand Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1xA0cneNJ1b1-jyCGsX3PESV5xkCCVskJ" alt="View Brand Page" width=100%/></td>
+  </tr>
+  <tr>
+    <td>List Brand Page</td>
+    <td>View Brand Page</td>
+  </tr>
 
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1OhOPC9E9pIjTI0Eu34ZC5i4rGDWdvbQ5" alt="Add Brand Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1y7tsNWqucxN5nb3JNM4E7Ot6iI10zu3w" alt="Edit Brand Page" width=100%></td>
+  </tr>
+  <tr>
+      <td>Add Brand Page</td>
+      <td>Edit Brand Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1zSl3Ougkha9kDAytbH2Lo0ItVSuYR12P" alt="List Store Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1nShCm53vwNlXg2J74EeMQNUEQKM9vMbc" alt="List User Page" width=100%></td>
+  </tr>
+  <tr>
+      <td>List Store Page</td>
+      <td>List User Page</td>
+  </tr>
+  
+  <tr>
+    <td><image src="https://lh3.googleusercontent.com/d/1L-nE-XVx5MKyIihvCaUYdMZjCY5gLQpq" alt="List Product Page" width=100%></td>
+    <td><image src="https://lh3.googleusercontent.com/d/1xg-eKGSaPzj_-EHlMzmmwTP68xBGEEdX" alt="List Transaction Page" width=100%></td>
+  </tr>
+  <tr>
+      <td>List Product Page</td>
+      <td>List Transaction Page</td>
+  </tr>
+</table>
+
+  <p align="center">
+     <img src="https://lh3.googleusercontent.com/d/19o1SHXmy-Uy6Bfdd3pcycYvTRKP7ZTXn" alt="List Category Page" width=50% />
+  </p>
+  <p align="center">List Category Page</p>
+</p>
 
 ## Contributing
 
