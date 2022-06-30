@@ -146,7 +146,7 @@ NEXT_PUBLIC_NODE_ENV = [NODE_ENV]
   
   <tr>
     <td><image src="https://lh3.googleusercontent.com/d/1L-nE-XVx5MKyIihvCaUYdMZjCY5gLQpq" alt="List Product Page" width=100%></td>
-    <td><image src="https://lh3.googleusercontent.com/d/1xg-eKGSaPzj_-EHlMzmmwTP68xBGEEdX" alt="List Transaction Page" width=100%></td>
+    <td><image src="https://i.postimg.cc/rpShz436/Fire-Shot-Capture-057-Blanja-Admin-Management-Transaction-localhost.png" alt="List Transaction Page" width=100%></td>
   </tr>
   <tr>
       <td>List Product Page</td>
