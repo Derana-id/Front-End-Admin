@@ -82,7 +82,15 @@ const index = () => {
                                   )
                                 : 'none'}
                             </td>
-                            <td>{item.transaction?.total}</td>
+                            <td>
+                              {item.transaction
+                                ? new Intl.NumberFormat('id-ID', {
+                                    style: 'currency',
+                                    currency: 'IDR',
+                                    minimumFractionDigits: 0,
+                                  }).format(item.transaction.total)
+                                : null}
+                            </td>
                             <td>
                               {item.transaction?.is_active === 1 ? (
                                 <span className="badge badge-pill badge-primary">
